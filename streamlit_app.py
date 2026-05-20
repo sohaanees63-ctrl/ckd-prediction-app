@@ -251,42 +251,60 @@ with col2:
 # ======================
 # PREDICTION
 # ======================
-if prediction[0] == 1:
 
-    st.success("✅ No CKD Detected")
-    st.balloons()
+if st.button("🔍 Predict CKD"):
 
-    st.markdown("""
-    <div style='
-    background:rgba(0,255,100,0.1);
-    padding:20px;
-    border-radius:15px;
-    text-align:center;
-    font-size:20px;
-    color:#7CFC00;
-    box-shadow:0px 0px 20px rgba(0,255,100,0.4);
-    '>
-    Patient appears Healthy 💚
-    </div>
-    """, unsafe_allow_html=True)
+    # Loading Animation
+    with st.spinner("Analyzing Patient Data..."):
+        time.sleep(2)
 
-else:
+    input_data = np.array([
+        [age,bp,sg,al,su,bgr,bu,sc,hemo,pcv]
+    ])
 
-    st.error("⚠️ CKD Detected")
+    # MODEL PREDICTION
+    prediction = model.predict(input_data)
 
-    st.markdown("""
-    <div style='
-    background:rgba(255,0,0,0.1);
-    padding:20px;
-    border-radius:15px;
-    text-align:center;
-    font-size:20px;
-    color:#ff6b6b;
-    box-shadow:0px 0px 20px rgba(255,0,0,0.4);
-    '>
-    Please consult a kidney specialist immediately 🩺
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown("---")
+
+    # HEALTHY
+    if prediction[0] == 1:
+
+        st.success("✅ No CKD Detected")
+        st.balloons()
+
+        st.markdown("""
+        <div style='
+        background:rgba(0,255,100,0.1);
+        padding:20px;
+        border-radius:15px;
+        text-align:center;
+        font-size:20px;
+        color:#7CFC00;
+        box-shadow:0px 0px 20px rgba(0,255,100,0.4);
+        '>
+        Patient appears Healthy 💚
+        </div>
+        """, unsafe_allow_html=True)
+
+    # CKD
+    else:
+
+        st.error("⚠️ CKD Detected")
+
+        st.markdown("""
+        <div style='
+        background:rgba(255,0,0,0.1);
+        padding:20px;
+        border-radius:15px;
+        text-align:center;
+        font-size:20px;
+        color:#ff6b6b;
+        box-shadow:0px 0px 20px rgba(255,0,0,0.4);
+        '>
+        Please consult a kidney specialist immediately 🩺
+        </div>
+        """, unsafe_allow_html=True)
 
 # ======================
 # FOOTER
