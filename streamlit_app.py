@@ -35,7 +35,7 @@ if st.button("Predict"):
     prediction = model.predict(input_scaled)
 
     # result
-    if prediction[0] == 1:
-        st.error("⚠️ CKD Detected")
-    else:
-        st.success("✅ No CKD Detected")
+    if prediction[0] == 0:
+    st.error("⚠️ CKD Detected")
+else:
+    st.success("✅ No CKD Detected")
