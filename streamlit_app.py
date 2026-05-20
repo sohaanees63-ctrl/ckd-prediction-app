@@ -268,7 +268,7 @@ if st.button("🔍 Predict CKD"):
     st.markdown("---")
 
     # HEALTHY
-    if prediction[0] == 1:
+    if prediction[0] == 0:
 
         st.success("✅ No CKD Detected")
         st.balloons()
