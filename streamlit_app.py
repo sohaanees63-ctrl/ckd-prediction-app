@@ -89,13 +89,31 @@ label {
     font-weight: bold;
 }
 
-/* Input Boxes */
-.stNumberInput input {
-    border-radius: 12px;
-    border: 2px solid #00ffd5;
-    padding: 12px;
-    background-color: rgba(255,255,255,0.1);
-    color: white;
+/* INPUT BOX CONTAINER */
+div[data-baseweb="input"] {
+    background-color: white !important;
+    border-radius: 12px !important;
+    border: 2px solid #00ffd5 !important;
+    overflow: hidden;
+}
+
+/* INPUT FIELD */
+div[data-baseweb="input"] input {
+    color: black !important;
+    background-color: white !important;
+    font-weight: bold !important;
+    font-size: 18px !important;
+    caret-color: black !important;
+}
+
+/* NUMBER INPUT ARROWS */
+input[type=number] {
+    color: black !important;
+}
+
+/* PLACEHOLDER TEXT */
+input::placeholder {
+    color: gray !important;
 }
 
 /* Button */
@@ -292,19 +310,5 @@ st.markdown("""
 <hr>
 <div class='footer'>
 ✨ Developed using Streamlit, Python & Machine Learning ✨
-</div>
-/* Input Boxes FIX */
-div[data-baseweb="input"] > div {
-    background-color: white !important;
-    border-radius: 12px !important;
-    border: 2px solid #00ffd5 !important;
-}
-
-div[data-baseweb="input"] input {
-    color: black !important;
-    background-color: white !important;
-    font-weight: bold !important;
-    font-size: 18px !important;
-}
 """, unsafe_allow_html=True)
 
