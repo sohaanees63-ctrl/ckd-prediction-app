@@ -251,56 +251,42 @@ with col2:
 # ======================
 # PREDICTION
 # ======================
-if st.button("🔍 Predict CKD"):
+if prediction[0] == 1:
 
-    # Loading Animation
-    with st.spinner("Analyzing Patient Data..."):
-        time.sleep(2)
+    st.success("✅ No CKD Detected")
+    st.balloons()
 
-    input_data = np.array([
-        [age,bp,sg,al,su,bgr,bu,sc,hemo,pcv]
-    ])
+    st.markdown("""
+    <div style='
+    background:rgba(0,255,100,0.1);
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    font-size:20px;
+    color:#7CFC00;
+    box-shadow:0px 0px 20px rgba(0,255,100,0.4);
+    '>
+    Patient appears Healthy 💚
+    </div>
+    """, unsafe_allow_html=True)
 
-    prediction = model.predict(input_data)
+else:
 
-    st.markdown("---")
+    st.error("⚠️ CKD Detected")
 
-    if prediction[0] == 0:
-
-        st.success("✅ No CKD Detected")
-        st.balloons()
-
-        st.markdown("""
-        <div style='
-        background:rgba(0,255,100,0.1);
-        padding:20px;
-        border-radius:15px;
-        text-align:center;
-        font-size:20px;
-        color:#7CFC00;
-        box-shadow:0px 0px 20px rgba(0,255,100,0.4);
-        '>
-        Patient appears Healthy 💚
-        </div>
-        """, unsafe_allow_html=True)
-
-    else:
-
-        st.error("⚠️ CKD Detected")
-
-        st.markdown("""
-        <div style='
-        background:rgba(255,0,0,0.1);
-        padding:20px;
-        border-radius:15px;
-        text-align:center;
-        font-size:20px;
-        color:#ff6b6b;
-        box-shadow:0px 0px 20px rgba(255,0,0,0.4);
-        '>
-        Please consult a kidney specialist immediately 🩺
-        </div>
-        """, unsafe_allow_html=True)
+    st.markdown("""
+    <div style='
+    background:rgba(255,0,0,0.1);
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    font-size:20px;
+    color:#ff6b6b;
+    box-shadow:0px 0px 20px rgba(255,0,0,0.4);
+    '>
+    Please consult a kidney specialist immediately 🩺
+    </div>
+    """, unsafe_allow_html=True)
 
 # ======================
 # FOOTER
