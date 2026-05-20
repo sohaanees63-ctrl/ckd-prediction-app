@@ -1,4 +1,3 @@
-```python
 import streamlit as st
 import joblib
 import numpy as np
@@ -234,7 +233,6 @@ with col2:
 # ======================
 # PREDICTION
 # ======================
-
 if st.button("🔍 Predict CKD"):
 
     # Loading Animation
