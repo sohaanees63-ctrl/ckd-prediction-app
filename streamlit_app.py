@@ -140,7 +140,9 @@ with col2:
 # ======================
 # PREDICTION
 # ======================
-if st.button("🔍 Predict CKD"):
+
+
+ if st.button("🔍 Predict CKD"):
 
     input_data = np.array([[age,bp,sg,al,su,bgr,bu,sc,hemo,pcv]])
 
@@ -148,16 +150,13 @@ if st.button("🔍 Predict CKD"):
 
     st.markdown("---")
 
-    pred = prediction[0]
-
-    # Handle all prediction types
-    if pred == 1 or pred == "ckd" or pred == "CKD":
-        st.error("⚠️ CKD Detected")
-        st.warning("Please consult a doctor.")
-
-    else:
+    if prediction[0] == 0:
         st.success("✅ No CKD Detected")
         st.balloons()
+
+    else:
+        st.error("⚠️ CKD Detected")
+        st.warning("Please consult a doctor.")
 
 # ======================
 # FOOTER
