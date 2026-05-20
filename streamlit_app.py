@@ -290,6 +290,9 @@ if st.button("🔍 Predict CKD"):
 
 st.markdown("""
 <hr>
+<div class='footer'>
+✨ Developed using Streamlit, Python & Machine Learning ✨
+</div>
 /* Input Boxes FIX */
 div[data-baseweb="input"] > div {
     background-color: white !important;
@@ -303,8 +306,5 @@ div[data-baseweb="input"] input {
     font-weight: bold !important;
     font-size: 18px !important;
 }
-<div class='footer'>
-✨ Developed using Streamlit, Python & Machine Learning ✨
-</div>
 """, unsafe_allow_html=True)
 
