@@ -140,9 +140,7 @@ with col2:
 # ======================
 # PREDICTION
 # ======================
-
-
-        if st.button("🔍 Predict CKD"):
+if st.button("🔍 Predict CKD"):
 
     input_data = np.array([[age,bp,sg,al,su,bgr,bu,sc,hemo,pcv]])
 
