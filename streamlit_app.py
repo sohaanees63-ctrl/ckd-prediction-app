@@ -36,6 +36,6 @@ if st.button("Predict"):
 
     # result
     if prediction[0] == 0:
-    st.error("⚠️ CKD Detected")
-else:
-    st.success("✅ No CKD Detected")
+        st.error("⚠️ CKD Detected")
+    else:
+        st.success("✅ No CKD Detected")
