@@ -149,7 +149,7 @@ if st.button("🔍 Predict CKD"):
 
     st.markdown("---")
 
-    if prediction[0] == 1:
+    if prediction[0] == 0:
         st.error("⚠️ CKD Detected")
         st.warning("Please consult a nephrologist for further medical evaluation.")
 
